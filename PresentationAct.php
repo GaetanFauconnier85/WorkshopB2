@@ -7,33 +7,14 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
         <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="CSS/menu.css">
         <link href="CSS/listeInvitation.css" rel="stylesheet" type="text/css"/>
         <title></title>
     </head>
     <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+ <?php include 'menu.php';?>
+
 
 <div class="p">
 
@@ -64,8 +45,8 @@
 </div>
 <div class="h">
 
-  <a href="salleDiscution.php"><img src="grey_new_seo-15-512.png" alt="oui"></a>
-  <br><br>Contacté le propriétaire !
+  <a href="salleDiscution.php"><img src="contact.png" alt="oui"></a>
+  <br><br>Contacter le propriétaire !
 </div>
 <div class="t">description <br>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas semper turpis et magna lacinia, eu dapibus massa interdum. Aliquam convallis enim est, tincidunt molestie justo congue non. Quisque lectus felis, eleifend id justo ac, pharetra bibendum velit. Vivamus ac quam tristique, condimentum mauris feugiat, porttitor ipsum. Donec scelerisque massa lectus, sed dictum lectus dignissim id. Etiam finibus mi nec mi porttitor bibendum. Vivamus iaculis neque sed risus consectetur tristique. Pellentesque vitae ex ante. Mauris eleifend risus non leo tincidunt feugiat. Maecenas venenatis ante nec enim bibendum, nec imperdiet nunc molestie. Maecenas sagittis sem eu euismod hendrerit. Fusce lobortis ac mauris posuere venenatis.

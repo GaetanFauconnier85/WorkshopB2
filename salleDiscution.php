@@ -8,32 +8,13 @@
 
         <meta charset="UTF-8">
         <link href="CSS/salleDiscution.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" type="text/css" href="CSS/menu.css">
         <title></title>
     </head> 
     <body>
         
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+    <?php include 'menu.php';?>
+
         <h1>Salle de discution</h1>   <hr>     
 
         <div class="oui">
@@ -45,9 +26,9 @@
         </div>
 
     <hr>
-    <a href="index.php"><button type="button" class="btn btn-danger">Retour à l'accueil</button></a>                        
+    <a href="Acceuil.php"><button type="button" class="btn btn-danger">Retour à l'accueil</button></a>                        
 
-    <a href="index.php"><button type="button" class="btn btn-success">Ajouter cette activité à mon panier</button></a>
+    <a href="activite.php"><button type="button" class="btn btn-success">Ajouter cette activité à mon panier</button></a>
         
     </body>
 </html>
