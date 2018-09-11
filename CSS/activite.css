@@ -24,25 +24,29 @@
 }
 
 .aside-4 {
-    background: tomato;
+    background: #dee2e6;
+    border-left: 1px solid black; 
 }
 
 .aside-3\.1 {
-    background: aqua;
+    background: #dee2e6;
 }
 
 .aside-3 {
-    background: lightgreen;
+    background: #dee2e6;
     width: 420%;
 }
 
 .aside-1 {
-    background: gold;
-    width: 420%;
+    background: #6d6d6d;
+    width: 400%;
+    color: #fff;
 }
 
 .aside-2 {
-    background: hotpink;
+    background: #6d6d6d;
+    color: #fff;
+    border-left: 1px solid black; 
 }
 
 td {
