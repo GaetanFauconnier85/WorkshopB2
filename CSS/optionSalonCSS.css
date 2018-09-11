@@ -1,0 +1,54 @@
+div{
+    text-align: center;
+}
+
+body{
+    background-color: blue;
+}
+
+.form-group{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.input-group-btn{
+    margin-left: 0%;
+}
+
+.scrolling{
+    overflow-y: scroll;
+    height: 45%;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.top{
+    height: 10%;
+}
+
+.title{
+    font-size: 25px;
+}
+
+html,body{
+    height: 100%;
+}
+
+.bottom{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.suppSalon{
+    float: left;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.annuler{
+    float: right;
+    margin-left: 20%;
+    margin-right: 20%;
+}
