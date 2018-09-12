@@ -1,3 +1,45 @@
+<?php
+session_start();
+
+require 'function.php';
+require_once 'db.php';
+
+if (!empty($_POST)){
+
+    $req = $pdo->prepare('SELECT * FROM client');
+    $req->execute([$_POST['email']]);
+    $succeful = $req->fetch();
+
+    $errors = array();
+
+    $password = $_POST['password'];
+    $longueurmin = strlen($password);
+    $longueurmax = strlen($password);
+
+    if((empty($_POST['email'])) || (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))){
+        $errors['email'] = "Veuillez entrez un email correcte du type example@example.com !";
+    }elseif($_POST['email'] <> $succeful->Email){
+        $errors['email'] = "Vous n'avez pas entrée la bonne adresse email :";
+    }
+
+    if((empty($_POST['password']))) {
+        $errors['password'] = "Le champ mot de passe est vide !";
+    }elseif(($longueurmin < 6) || ($longueurmax > 30)){
+        $errors['password'] = "Vous devez entrez minimum 6 caractèes et maximum 30";
+    }elseif($_POST['password'] <> password_verify($password, $succeful->password)) {
+        $errors['password'] = "Le mot de passe entrer est inccorecte !";
+    }
+
+    if(empty($errors)){
+
+        if(password_verify($password, $succeful->password)) {
+            $_SESSION['id'] = $succeful->Id;
+            header('Location: recherche.php');
+        }
+    }
+}
+
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -7,7 +49,7 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-        <link rel="stylesheet" type="text/css" href="CSS/login.css">
+        <link rel="stylesheet" type="text/css" href="css/login.css">
     </head>
     <body>
     <div class="container">
@@ -21,15 +63,29 @@
                                 <p>Bienvenu chez Epsi student !</p>
                             </div>
                         </div>
-                        <form action="Acceuil.php" method="post">
+                        <form action="" method="POST" autocomplete="off">
                             <div class="form-group">
                                 <label for="email">Adresse email</label>
-                                <input type="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="exemple@exemple.fr">
+                                <input type="text" name="email"  class="form-control" id="email" placeholder="exemple@exemple.fr">
                             </div>
+                            <span>
+                                <?php if(!empty($errors['email'])): ?>
+                                    <div class="alert-danger-error">
+                                        <p><?= $errors['email']; ?></p>
+                                    </div>
+                                <?php endif; ?>
+                            </span>
                             <div class="form-group">
                                 <label for="password">Mot de passe</label>
                                 <input type="password" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="p@ssw0rd">
                             </div>
+                            <span>
+                                <?php if(!empty($errors['password'])): ?>
+                                    <div class="alert-danger-error">
+                                        <p><?= $errors['password']; ?></p>
+                                    </div>
+                                <?php endif; ?>
+                            </span>
                             <div class="form-group">
                                 <hr>
                             </div>

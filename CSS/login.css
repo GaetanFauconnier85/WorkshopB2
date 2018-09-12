@@ -75,3 +75,6 @@ form .error {
 #second {
     display:none;
 }
+.alert-danger-error {
+    color: red;
+}
