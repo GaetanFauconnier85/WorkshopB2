@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,700);
+
 body {
-	background: #048;
+	background-color:red;
 	background: -webkit-linear-gradient(left top, #027, #48a);
 	background: -moz-linear-gradient(bottom right, #027, #48a);
 	background: linear-gradient(to bottom right, #027, #48a);
@@ -12,10 +13,11 @@ body {
 	margin: 0;
 	min-height: 100vh;
 	padding: 0;
-	width: 100%; 
-        background-image: url(student.jpg);
-        background-repeat: no-repeat ;
-
+	width: 100%;      
+       background: url('../images/student.jpg');
+       background-repeat: repeat-x;
+      
+       
 }
 h1.page_title{color:#fff;}
 h2.menu_title{color:#fff;}
@@ -25,7 +27,7 @@ h2.menu_title{color:#fff;}
 	line-height: 150%;
 	text-align: center;
 	text-shadow: 0 1px 5px rgba(0,0,0,.8);
-	text-transform: uppercase;
+	font-family: 'Crete Round', serif;
 }
 
 
@@ -33,14 +35,16 @@ h1.page_title{
     font-size: 40px;
     text-align: center;
     margin-top: 4%;
-    
+    font-family: 'Crete Round', serif;
+    font-weight: bold;
+    color: #fff ;
 }
 
 
 .entoureTexte{
     border-width:1px;
     border-style:solid;
-    border-style: none;
+    border-style:none;
     padding: 20px;
     margin: 20px;
     background-color: rgba(230, 230, 230,230);
@@ -166,19 +170,18 @@ a,
 	}
 	.list_item {
 		margin-left: 20px;
-		opacity: 0;
 		-webkit-transition: all 200ms ease-in-out;
-		transition: all 200ms ease-in-out;
+		transition: all 500ms ease-in-out;
                 
 	}
 	.list_item a {
-		color: #fff;
+	        font-size:20px;
 		display: block;
 		padding: 5px 10px;
-		text-decoration: none;
+	        text-decoration: none;
+                font-family: 'Crete Round', serif;    
 	}
 	.list_item a:hover {
-		background: rgba(255,255,255,.2);
+            background:lightskyblue;
+                text-decoration: none;
 	}
-        
-      

@@ -17,409 +17,55 @@
     <body>
         <?php include 'menu.php';?>
 <br>
+
+<?php
+
+$bdd = new PDO('mysql:host=localhost;dbname=wsb2;charset=utf8', 'root', '');
+
+$IdSession = 1;
+
+$reponse = $bdd->query('SELECT * FROM activite a join participeact pa on pa.idAct = a.idAct join client c on c.Id = pa.idClient where '.$IdSession.'=Id');
+
+?>
         <div>
             <div class="wrapper">
                 <aside class="aside aside-1">Mes activités en cours</aside>
                 <aside class="aside aside-2">Ajouter des personnes</aside>
             </div>
             <div class="tout">
-                <div class="wrapper2">
+            
+            <?php
+while ($donnees = $reponse->fetch()) {
+    ?>      
+                <div class="wrapper2"> 
                     <aside class="aside aside-3">
+                   
                         <aside class="aside aside-3.1">
                             <table>
                                 <tr>
-                                    <td class="td-name">Proposé par <b>Camille Bourget</b></td>
-                                    <td class="td-activity">Activité : <b>Course à pied</b></td>
-                                    <td class="td-map">Le lieu : <b>1 rue d'allonville 44000 Nantes</b></td>
-                                    <td class="td-date">La date : <b>11/09/2018 à 12h00</b></td>
-                                    <td class="td-time">Durée : <b>2h</b></td>
-                                </tr>
-                            </table>
-                        </aside>
-                    </aside>
-                    <aside class="aside aside-4">
-                        <tr>
-                            <button>Ajouter</button>
-                            <button>Supprimer</button>
-                        </tr>
-                    </aside>
-                </div>
-                <div class="wrapper2">
-                    <aside class="aside aside-3">
-                        <aside class="aside aside-3.1">
-                            <table>
-                                <tr>
-                                    <td class="td-name">Proposé par <b>Camille Bourget</b></td>
-                                    <td class="td-activity">Activité : <b>Course à pied</b></td>
-                                    <td class="td-map">Le lieu : <b>1 rue d'allonville 44000 Nantes</b></td>
-                                    <td class="td-date">La date : <b>11/09/2018 à 12h00</b></td>
-                                    <td class="td-time">Durée : <b>2h</b></td>
-                                </tr>
-                            </table>
-                        </aside>
-                    </aside>
-                    <aside class="aside aside-4">
-                        <tr>
-                            <button>Ajouter</button>
-                            <button>Supprimer</button>
-                        </tr>
-                    </aside>
-                </div>
-                <div class="wrapper2">
-                    <aside class="aside aside-3">
-                        <aside class="aside aside-3.1">
-                            <table>
-                                <tr>
-                                    <td class="td-name">Proposé par <b>Camille Bourget</b></td>
-                                    <td class="td-activity">Activité : <b>Course à pied</b></td>
-                                    <td class="td-map">Le lieu : <b>1 rue d'allonville 44000 Nantes</b></td>
-                                    <td class="td-date">La date : <b>11/09/2018 à 12h00</b></td>
-                                    <td class="td-time">Durée : <b>2h</b></td>
-                                </tr>
-                            </table>
-                        </aside>
-                    </aside>
-                    <aside class="aside aside-4">
-                        <tr>
-                            <button>Ajouter</button>
-                            <button>Supprimer</button>
-                        </tr>
-                    </aside>
-                </div>
-                <div class="wrapper2">
-                    <aside class="aside aside-3">
-                        <aside class="aside aside-3.1">
-                            <table>
-                                <tr>
-                                    <td class="td-name">Proposé par <b>Camille Bourget</b></td>
-                                    <td class="td-activity">Activité : <b>Course à pied</b></td>
-                                    <td class="td-map">Le lieu : <b>1 rue d'allonville 44000 Nantes</b></td>
-                                    <td class="td-date">La date : <b>11/09/2018 à 12h00</b></td>
-                                    <td class="td-time">Durée : <b>2h</b></td>
-                                </tr>
-                            </table>
-                        </aside>
-                    </aside>
-                    <aside class="aside aside-4">
-                        <tr>
-                            <button>Ajouter</button>
-                            <button>Supprimer</button>
-                        </tr>
-                    </aside>
-                </div>
-                <div class="wrapper2">
-                    <aside class="aside aside-3">
-                        <aside class="aside aside-3.1">
-                            <table>
-                                <tr>
-                                    <td class="td-name">Proposé par <b>Camille Bourget</b></td>
-                                    <td class="td-activity">Activité : <b>Course à pied</b></td>
-                                    <td class="td-map">Le lieu : <b>1 rue d'allonville 44000 Nantes</b></td>
-                                    <td class="td-date">La date : <b>11/09/2018 à 12h00</b></td>
-                                    <td class="td-time">Durée : <b>2h</b></td>
-                                </tr>
-                            </table>
-                        </aside>
-                    </aside>
-                    <aside class="aside aside-4">
-                        <tr>
-                            <button>Ajouter</button>
-                            <button>Supprimer</button>
-                        </tr>
-                    </aside>
-                </div>
-                <div class="wrapper2">
-                    <aside class="aside aside-3">
-                        <aside class="aside aside-3.1">
-                            <table>
-                                <tr>
-                                    <td class="td-name">Proposé par <b>Camille Bourget</b></td>
-                                    <td class="td-activity">Activité : <b>Course à pied</b></td>
-                                    <td class="td-map">Le lieu : <b>1 rue d'allonville 44000 Nantes</b></td>
-                                    <td class="td-date">La date : <b>11/09/2018 à 12h00</b></td>
-                                    <td class="td-time">Durée : <b>2h</b></td>
-                                </tr>
-                            </table>
-                        </aside>
-                    </aside>
-                    <aside class="aside aside-4">
-                        <tr>
-                            <button>Ajouter</button>
-                            <button>Supprimer</button>
-                        </tr>
-                    </aside>
-                </div>
-                <div class="wrapper2">
-                    <aside class="aside aside-3">
-                        <aside class="aside aside-3.1">
-                            <table>
-                                <tr>
-                                    <td class="td-name">Proposé par <b>Camille Bourget</b></td>
-                                    <td class="td-activity">Activité : <b>Course à pied</b></td>
-                                    <td class="td-map">Le lieu : <b>1 rue d'allonville 44000 Nantes</b></td>
-                                    <td class="td-date">La date : <b>11/09/2018 à 12h00</b></td>
-                                    <td class="td-time">Durée : <b>2h</b></td>
-                                </tr>
-                            </table>
-                        </aside>
-                    </aside>
-                    <aside class="aside aside-4">
-                        <tr>
-                            <button>Ajouter</button>
-                            <button>Supprimer</button>
-                        </tr>
-                    </aside>
-                </div>
-                <div class="wrapper2">
-                    <aside class="aside aside-3">
-                        <aside class="aside aside-3.1">
-                            <table>
-                                <tr>
-                                    <td class="td-name">Proposé par <b>Camille Bourget</b></td>
-                                    <td class="td-activity">Activité : <b>Course à pied</b></td>
-                                    <td class="td-map">Le lieu : <b>1 rue d'allonville 44000 Nantes</b></td>
-                                    <td class="td-date">La date : <b>11/09/2018 à 12h00</b></td>
-                                    <td class="td-time">Durée : <b>2h</b></td>
-                                </tr>
-                            </table>
-                        </aside>
-                    </aside>
-                    <aside class="aside aside-4">
-                        <tr>
-                            <button>Ajouter</button>
-                            <button>Supprimer</button>
-                        </tr>
-                    </aside>
-                </div>
-                <div class="wrapper2">
-                    <aside class="aside aside-3">
-                        <aside class="aside aside-3.1">
-                            <table>
-                                <tr>
-                                    <td class="td-name">Proposé par <b>Camille Bourget</b></td>
-                                    <td class="td-activity">Activité : <b>Course à pied</b></td>
-                                    <td class="td-map">Le lieu : <b>1 rue d'allonville 44000 Nantes</b></td>
-                                    <td class="td-date">La date : <b>11/09/2018 à 12h00</b></td>
-                                    <td class="td-time">Durée : <b>2h</b></td>
-                                </tr>
-                            </table>
-                        </aside>
-                    </aside>
-                    <aside class="aside aside-4">
-                        <tr>
-                            <button>Ajouter</button>
-                            <button>Supprimer</button>
-                        </tr>
-                    </aside>
-                </div>
-                <div class="wrapper2">
-                    <aside class="aside aside-3">
-                        <aside class="aside aside-3.1">
-                            <table>
-                                <tr>
-                                    <td class="td-name">Proposé par <b>Camille Bourget</b></td>
-                                    <td class="td-activity">Activité : <b>Course à pied</b></td>
-                                    <td class="td-map">Le lieu : <b>1 rue d'allonville 44000 Nantes</b></td>
-                                    <td class="td-date">La date : <b>11/09/2018 à 12h00</b></td>
-                                    <td class="td-time">Durée : <b>2h</b></td>
-                                </tr>
-                            </table>
-                        </aside>
-                    </aside>
-                    <aside class="aside aside-4">
-                        <tr>
-                            <button>Ajouter</button>
-                            <button>Supprimer</button>
-                        </tr>
-                    </aside>
-                </div>
-                <div class="wrapper2">
-                    <aside class="aside aside-3">
-                        <aside class="aside aside-3.1">
-                            <table>
-                                <tr>
-                                    <td class="td-name">Proposé par <b>Camille Bourget</b></td>
-                                    <td class="td-activity">Activité : <b>Course à pied</b></td>
-                                    <td class="td-map">Le lieu : <b>1 rue d'allonville 44000 Nantes</b></td>
-                                    <td class="td-date">La date : <b>11/09/2018 à 12h00</b></td>
-                                    <td class="td-time">Durée : <b>2h</b></td>
-                                </tr>
-                            </table>
-                        </aside>
-                    </aside>
-                    <aside class="aside aside-4">
-                        <tr>
-                            <button>Ajouter</button>
-                            <button>Supprimer</button>
-                        </tr>
-                    </aside>
-                </div>
-                <div class="wrapper2">
-                    <aside class="aside aside-3">
-                        <aside class="aside aside-3.1">
-                            <table>
-                                <tr>
-                                    <td class="td-name">Proposé par <b>Camille Bourget</b></td>
-                                    <td class="td-activity">Activité : <b>Course à pied</b></td>
-                                    <td class="td-map">Le lieu : <b>1 rue d'allonville 44000 Nantes</b></td>
-                                    <td class="td-date">La date : <b>11/09/2018 à 12h00</b></td>
-                                    <td class="td-time">Durée : <b>2h</b></td>
-                                </tr>
-                            </table>
-                        </aside>
-                    </aside>
-                    <aside class="aside aside-4">
-                        <tr>
-                            <button>Ajouter</button>
-                            <button>Supprimer</button>
-                        </tr>
-                    </aside>
-                </div>
-                <div class="wrapper2">
-                    <aside class="aside aside-3">
-                        <aside class="aside aside-3.1">
-                            <table>
-                                <tr>
-                                    <td class="td-name">Proposé par <b>Camille Bourget</b></td>
-                                    <td class="td-activity">Activité : <b>Course à pied</b></td>
-                                    <td class="td-map">Le lieu : <b>1 rue d'allonville 44000 Nantes</b></td>
-                                    <td class="td-date">La date : <b>11/09/2018 à 12h00</b></td>
-                                    <td class="td-time">Durée : <b>2h</b></td>
-                                </tr>
-                            </table>
-                        </aside>
-                    </aside>
-                    <aside class="aside aside-4">
-                        <tr>
-                            <button>Ajouter</button>
-                            <button>Supprimer</button>
-                        </tr>
-                    </aside>
-                </div>
-                <div class="wrapper2">
-                    <aside class="aside aside-3">
-                        <aside class="aside aside-3.1">
-                            <table>
-                                <tr>
-                                    <td class="td-name">Proposé par <b>Camille Bourget</b></td>
-                                    <td class="td-activity">Activité : <b>Course à pied</b></td>
-                                    <td class="td-map">Le lieu : <b>1 rue d'allonville 44000 Nantes</b></td>
-                                    <td class="td-date">La date : <b>11/09/2018 à 12h00</b></td>
-                                    <td class="td-time">Durée : <b>2h</b></td>
-                                </tr>
-                            </table>
-                        </aside>
-                    </aside>
-                    <aside class="aside aside-4">
-                        <tr>
-                            <button>Ajouter</button>
-                            <button>Supprimer</button>
-                        </tr>
-                    </aside>
-                </div>            <div class="wrapper2">
-                    <aside class="aside aside-3">
-                        <aside class="aside aside-3.1">
-                            <table>
-                                <tr>
-                                    <td class="td-name">Proposé par <b>Camille Bourget</b></td>
-                                    <td class="td-activity">Activité : <b>Course à pied</b></td>
-                                    <td class="td-map">Le lieu : <b>1 rue d'allonville 44000 Nantes</b></td>
-                                    <td class="td-date">La date : <b>11/09/2018 à 12h00</b></td>
-                                    <td class="td-time">Durée : <b>2h</b></td>
-                                </tr>
-                            </table>
-                        </aside>
-                    </aside>
-                    <aside class="aside aside-4">
-                        <tr>
-                            <button>Ajouter</button>
-                            <button>Supprimer</button>
-                        </tr>
-                    </aside>
-                </div>            <div class="wrapper2">
-                    <aside class="aside aside-3">
-                        <aside class="aside aside-3.1">
-                            <table>
-                                <tr>
-                                    <td class="td-name">Proposé par <b>Camille Bourget</b></td>
-                                    <td class="td-activity">Activité : <b>Course à pied</b></td>
-                                    <td class="td-map">Le lieu : <b>1 rue d'allonville 44000 Nantes</b></td>
-                                    <td class="td-date">La date : <b>11/09/2018 à 12h00</b></td>
-                                    <td class="td-time">Durée : <b>2h</b></td>
-                                </tr>
-                            </table>
-                        </aside>
-                    </aside>
-                    <aside class="aside aside-4">
-                        <tr>
-                            <button>Ajouter</button>
-                            <button>Supprimer</button>
-                        </tr>
-                    </aside>
-                </div>            <div class="wrapper2">
-                    <aside class="aside aside-3">
-                        <aside class="aside aside-3.1">
-                            <table>
-                                <tr>
-                                    <td class="td-name">Proposé par <b>Camille Bourget</b></td>
-                                    <td class="td-activity">Activité : <b>Course à pied</b></td>
-                                    <td class="td-map">Le lieu : <b>1 rue d'allonville 44000 Nantes</b></td>
-                                    <td class="td-date">La date : <b>11/09/2018 à 12h00</b></td>
-                                    <td class="td-time">Durée : <b>2h</b></td>
-                                </tr>
-                            </table>
-                        </aside>
-                    </aside>
-                    <aside class="aside aside-4">
-                        <tr>
-                            <button>Ajouter</button>
-                            <button>Supprimer</button>
-                        </tr>
-                    </aside>
-                </div>
-                <div class="wrapper2">
-                    <aside class="aside aside-3">
-                        <aside class="aside aside-3.1">
-                            <table>
-                                <tr>
-                                    <td class="td-name">Proposé par <b>Camille Bourget</b></td>
-                                    <td class="td-activity">Activité : <b>Course à pied</b></td>
-                                    <td class="td-map">Le lieu : <b>1 rue d'allonville 44000 Nantes</b></td>
-                                    <td class="td-date">La date : <b>11/09/2018 à 12h00</b></td>
-                                    <td class="td-time">Durée : <b>2h</b></td>
-                                </tr>
-                            </table>
-                        </aside>
-                    </aside>
-                    <aside class="aside aside-4">
-                        <tr>
-                            <button>Ajouter</button>
-                            <button>Supprimer</button>
-                        </tr>
-                    </aside>
-                </div>            <div class="wrapper2">
-                    <aside class="aside aside-3">
-                        <aside class="aside aside-3.1">
-                            <table>
-                                <tr>
-                                    <td class="td-name">Proposé par <b>Camille Bourget</b></td>
-                                    <td class="td-activity">Activité : <b>Course à pied</b></td>
-                                    <td class="td-map">Le lieu : <b>1 rue d'allonville 44000 Nantes</b></td>
-                                    <td class="td-date">La date : <b>11/09/2018 à 12h00</b></td>
-                                    <td class="td-time">Durée : <b>2h</b></td>
-                                </tr>
-                            </table>
-                        </aside>
-                    </aside>
-                    <aside class="aside aside-4">
-                        <tr>
-                            <button>Ajouter</button>
-                            <button>Supprimer</button>
-                        </tr>
-                    </aside>
-                </div>
-            </div>
+                   
+                                    <td class="td-name">Proposé par <b><?php echo $donnees['nomProprio'];?> </b></td>
+                                    <td class="td-activity">Activité : <b><?php echo $donnees['nomAct'];?> </b></td>
+                                    <td class="td-map">Le lieu : <b><?php echo $donnees['Lieu'];?></b></td>
+                                    <td class="td-date">La date : <b><?php echo $donnees['Heure'];?></b></td>
+                                    <td class="td-time">Durée : <b><?php echo $donnees['Duree'];?></b></td>
 
+                                </tr>
+                            </table>
+                        </aside>
+                      
+                    </aside>
+                    <aside class="aside aside-4">
+                        <tr>
+                            <button>Ajouter</button>
+                            <button>Supprimer</button>
+                        </tr>
+                    </aside>
+                    
+                </div>
+                <?php
+}
+?>
         </div>
 
 

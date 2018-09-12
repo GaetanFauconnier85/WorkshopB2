@@ -32,16 +32,22 @@
                 <input type="date" placeholder="Date" id="schbox" class="form-control input-lg">
                 <i class="icon icon-search"></i>
             </div>
-            <div class="input-group input-group-lg icon-addon addon-lg">
-                <input type="time" placeholder="Heure" id="schbox" class="form-control input-lg">
-                <i class="icon icon-search"></i>
-            </div>
             
             <button type="button" class="btn btn-success suc">Valider</button>
 
         </div>
 
 </div> 
+
+<?php
+
+$bdd = new PDO('mysql:host=localhost;dbname=wsb2;charset=utf8', 'root', '');
+
+
+$reponse = $bdd->query('SELECT * FROM activite');
+
+?>
+
 
 <div class="entoureTexte1"><h1>Activités déjà présente :</h1> <hr>
 <table class="table">
@@ -50,18 +56,23 @@
       <th scope="col">Activité</th>
       <th scope="col">Lieu</th>
       <th scope="col">Date</th>
-      <th scope="col">Heure</th>
     </tr>
   </thead>
   <tbody>
-      <?php for( $i = 0; $i<50;$i++){ ?>
-            <tr>
-            <th scope="row">Sport</th>
-            <td>Nantes</td>
-            <td>15 novembre 2018</td>
-            <td>15 : 21</td>
-          </tr>
-    <?php  } ?>
+  <?php
+while ($donnees = $reponse->fetch()) {
+    ?>
+    <tr>
+    
+    <th scope="row"><?php echo $donnees['nomAct'];?> 
+    <th scope="row"><?php echo $donnees['Lieu'];?>
+    <th scope="row"><?php echo $donnees['Heure'];?>
+     </tr> <?php
+}
+?>
+ 
+            
+          
     
     
   </tbody>
