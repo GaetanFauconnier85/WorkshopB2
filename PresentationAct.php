@@ -13,27 +13,44 @@
     </head>
     <body>
 
- <?php include 'menu.php';?>
+ <?php include 'menu.php';
+ 
+ $idAct = $_POST['idAct'];
+
+ $bdd = new PDO('mysql:host=localhost;dbname=wsb2;charset=utf8', 'root', '');
+        
+        $reponse = $bdd->prepare('SELECT * FROM activite  where idAct=:idAct');
+        $reponse->execute(array(
+            ":idAct" => $idAct
+
+        ));
+
+        $comment = $bdd->prepare('SELECT * FROM commentaire co join activite a on a.idAct=co.idAct join client c on c.Id=co.idClient where co.idAct=:idAct');
+       $comment->execute(array(
+         ":idAct" => $idAct
+       ));
+ ?>
 
 
 <div class="p">
-
-  <div class="entoureTexte1"><h1>Nom activité :</h1> <hr>
+<?php 
+                    while($donnees = $reponse->fetch()){ ?>
+  <div class="entoureTexte1"><h1><?php echo $donnees['nomAct']; ?></h1> <br>
 <table class="table">
   <thead>
     <tr>
       <th scope="col">Propriétaire</th>
       <th scope="col">Lieu</th>
       <th scope="col">Date</th>
-      <th scope="col">Heure</th>
+      <th scope="col">Duree</th>
     </tr>
   </thead>
   <tbody>
             <tr>
-            <th scope="row">Gaëtan</th>
-            <td>Nantes</td>
-            <td>15 novembre 2018</td>
-            <td>15 : 21</td>
+            <th scope="row"><?php echo $donnees['nomProprio']; ?></th>
+            <td><?php echo $donnees['Lieu']; ?></td>
+            <td> <?php echo $donnees['Heure']; ?> </td>
+            <td><?php echo $donnees['Duree']; ?></td>
           </tr>
     
     
@@ -41,32 +58,47 @@
 </table>
 </div>
 
-
 </div>
 <div class="h">
 
   <a href="salleDiscution.php"><img src="contact.png" alt="oui"></a>
   <br><br>Contacter le propriétaire !
 </div>
-<div class="t">description <br>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas semper turpis et magna lacinia, eu dapibus massa interdum. Aliquam convallis enim est, tincidunt molestie justo congue non. Quisque lectus felis, eleifend id justo ac, pharetra bibendum velit. Vivamus ac quam tristique, condimentum mauris feugiat, porttitor ipsum. Donec scelerisque massa lectus, sed dictum lectus dignissim id. Etiam finibus mi nec mi porttitor bibendum. Vivamus iaculis neque sed risus consectetur tristique. Pellentesque vitae ex ante. Mauris eleifend risus non leo tincidunt feugiat. Maecenas venenatis ante nec enim bibendum, nec imperdiet nunc molestie. Maecenas sagittis sem eu euismod hendrerit. Fusce lobortis ac mauris posuere venenatis.
 
-Integer non lobortis sapien, et sagittis metus. Donec semper magna nec tempus dignissim. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus nibh magna, feugiat vestibulum dignissim a, tincidunt sed ex. Cras lobortis blandit vestibulum. Morbi in mauris mauris. Proin volutpat ex a nulla euismod pharetra. Sed quam leo, scelerisque sit amet feugiat at, vehicula at nulla. Cras quis orci eu nisl molestie maximus. Cras nec viverra leo. Nunc varius purus ut lacus aliquam ultrices. Vestibulum quis vestibulum lorem. Phasellus a consequat nibh.
+<div class="t"><h1>Description : </h1> <br>
 
-Pellentesque volutpat in leo eu auctor. Maecenas sodales convallis diam a vulputate. Aenean non augue vestibulum, vulputate justo eu, laoreet arcu. In condimentum rutrum pretium. Praesent finibus et ex vel porttitor. Vestibulum metus nunc, dictum id sapien vitae, vestibulum porttitor purus. Duis tincidunt, turpis ut facilisis ultrices, nibh arcu ullamcorper justo, vitae dignissim ligula magna suscipit mi. Maecenas nisl erat, sodales in nisl quis, consequat porttitor odio. Quisque ultrices gravida justo. Etiam sit amet mi at leo scelerisque interdum ut id urna. Praesent lobortis finibus tellus eget tempus. Nam tempor malesuada suscipit. Vivamus nec nunc ultrices, finibus justo vitae, dignissim lorem.
-
-Pellentesque non mi pellentesque, iaculis nisl nec, semper metus. Phasellus rhoncus ut elit vitae viverra. Phasellus posuere est id lacus feugiat luctus. Aenean consectetur pulvinar condimentum. Nunc in aliquet enim, eget aliquet massa. Maecenas vel luctus ligula. Donec ultrices imperdiet mi, sed ullamcorper augue tincidunt eu. Ut iaculis pulvinar enim eu porta. Nullam tristique erat id justo ornare, sit amet pulvinar magna porta. Nullam vitae dignissim risus. Vivamus laoreet eu purus ut eleifend. Vestibulum eget diam pharetra, tristique lectus nec, lacinia velit. Ut eget hendrerit urna.
-
-In eu velit ornare, volutpat sapien vitae, ullamcorper velit. Fusce sit amet feugiat ante. Praesent dignissim ornare ipsum vitae cursus. Vivamus consequat in purus suscipit pellentesque. Nam consequat justo a lacus egestas lacinia. Aenean magna orci, commodo dapibus mi et, imperdiet suscipit leo. Morbi at consequat risus. Nulla sodales convallis neque, non gravida mi luctus ac. Integer ornare dui vel venenatis feugiat. In ut est gravida, tincidunt leo ac, pharetra risus. Maecenas vel ligula urna. Vivamus a nulla et purus venenatis bibendum. Suspendisse at neque bibendum, pellentesque nisi a, volutpat dolor. Nulla laoreet turpis nibh, et tincidunt tellus viverra sed.
+                     <?php echo $donnees['Description']; ?> 
+                    
 </div>
-<div class="t">avis , commentaire <br>
+<?php } ?>
+<div class="t"><h1>Commentaire :</h1> <br>
 
+<?php 
+while($com = $comment->fetch()){ 
 
-            <?php for ($i = 1; $i < 20; $i++) { ?>
-            <div class="entoureTexte"><div><div class="nomUser"><b><button type="button" class="btn btn-default btn-circle btn-xl"></button> Nom Utlisateur   :<br>jj/mm/aaaa hh:minmin</div></b>  Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMake</div><br></div> 
-            <?php } ?>
-    
+ echo $com['Nom']; echo $com['commentaire'];echo $com['Heure']; ?> <br> <?php
+
+} ?>
+
 </div>
+<form method="post" action="PresentationAct.php"> 
+<div class="form-group">
+            <div class="input-group input-group-lg icon-addon addon-lg">
+                <input type="text" name="oui" placeholder="Ajouter commentaire" id="schbox" class="form-control input-lg">
+                <i class="icon icon-search"></i>
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-inverse btn-lg">Ajouter</button>
+                </span>
+            </div>
 
+            <?php 
+            $comm = $_POST['oui']
+
+           // $req = $bdd->prepare("INSERT INTO commentaire SET idAct = ? ,commentaire = ? ,Heure = ? ,idClient = ?");
+            //$req->execute($idAct, $oui, "2018-09-11 04:31:11","1");
+
+           ?>
+</div>
+</form>
     </body>
 </html>

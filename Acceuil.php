@@ -35,11 +35,11 @@
         <div class="entoureTexte"> <hr>
             <div class="form-group">
                 <div class="input-group input-group-lg icon-addon addon-lg">
-                    <input type="text" placeholder="Activite" name="oui" id="schbox" class="form-control input-lg">
+                    <input type="text" placeholder="Activite" name="act" id="schbox" class="form-control input-lg">
                     <i class="icon icon-search"></i>
                 </div>
                 <div class="input-group input-group-lg icon-addon addon-lg">
-                    <input type="text" placeholder="Lieu" id="schbox" class="form-control input-lg">
+                    <input type="text" placeholder="Lieu" name="lieu" id="schbox" class="form-control input-lg">
                     <i class="icon icon-search"></i>
                 </div>
                 <br>

@@ -95,3 +95,10 @@ p {
     text-align: left;
     padding: 1px;
 }
+.suc{
+    float: right;
+    margin : auto;
+}
+hr{
+    margin : 5%;
+}
