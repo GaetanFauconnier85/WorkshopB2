@@ -78,3 +78,10 @@ form .error {
 .alert-danger-error {
     color: red;
 }
+.alert-danger-succes {
+    text-align: center;
+    color: white;
+    background-color: green;
+    height: 35px;
+    padding: 5px;
+}

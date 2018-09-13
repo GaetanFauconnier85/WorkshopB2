@@ -80,25 +80,6 @@ while($com = $comment->fetch()){
 
 } ?>
 
-</div>
-<form method="post" action="PresentationAct.php"> 
-<div class="form-group">
-            <div class="input-group input-group-lg icon-addon addon-lg">
-                <input type="text" name="oui" placeholder="Ajouter commentaire" id="schbox" class="form-control input-lg">
-                <i class="icon icon-search"></i>
-                <span class="input-group-btn">
-                    <button type="submit" class="btn btn-inverse btn-lg">Ajouter</button>
-                </span>
-            </div>
 
-            <?php 
-            $comm = $_POST['oui']
-
-           // $req = $bdd->prepare("INSERT INTO commentaire SET idAct = ? ,commentaire = ? ,Heure = ? ,idClient = ?");
-            //$req->execute($idAct, $oui, "2018-09-11 04:31:11","1");
-
-           ?>
-</div>
-</form>
     </body>
 </html>

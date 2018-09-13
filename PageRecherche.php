@@ -18,7 +18,7 @@
         
         $bdd = new PDO('mysql:host=localhost;dbname=wsb2;charset=utf8', 'root', '');
 
-        $IdSession = 1;
+        $IdSession = '1';
         
         $reponse = $bdd->prepare('SELECT * FROM activite  where nomAct = :act AND Lieu = :lieu');
         $reponse->execute(array(

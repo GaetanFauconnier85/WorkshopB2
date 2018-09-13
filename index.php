@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-require 'function.php';
 require_once 'db.php';
 
 if (!empty($_POST)){
@@ -34,6 +33,17 @@ if (!empty($_POST)){
 
         if(password_verify($password, $succeful->password)) {
             $_SESSION['id'] = $succeful->Id;
+            $_SESSION['nom'] = $succeful->Nom;
+            $_SESSION['prenom'] = $succeful->Prenom;
+            $_SESSION['nom'] = $succeful->Nom;
+            $_SESSION['promo'] = $succeful->Promo;
+            $_SESSION['identifiant'] = $succeful->Identifiant;
+            $_SESSION['email'] = $succeful->Email;
+            $_SESSION['activiteprefere'] = $succeful->ActPrefere;
+            $_SESSION['status'] = $succeful->status;
+            $_SESSION['tel'] = $succeful->tel;
+            $_SESSION['musiqueprefere'] = $succeful->musiquePrefere;
+            $_SESSION['platprefere'] = $succeful->platPrefere;
             header('Location: recherche.php');
         }
     }

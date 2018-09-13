@@ -13,12 +13,26 @@
     </head>
     <body>
 
- <?php include 'menu.php';?>
+ <?php include 'menu.php';
+ 
+ $idClient = '1';
+
+ $bdd = new PDO('mysql:host=localhost;dbname=wsb2;charset=utf8', 'root', '');
+
+ $reponse = $bdd->prepare('SELECT * FROM client  where Id=:idClient');
+        $reponse->execute(array(
+            ":idClient" => $idClient
+
+        ));
+ 
+ ?>
 
 
 <div class="p">
 
-  <div class="entoureTexte1"><h1>Prenom Nom <a href="Profil.php"><button type="button" class="btn btn-danger">Supprimer</button></a><a href="Profil.php"><button type="button" class="btn btn-success">Ajouter</button></a> <hr></h1>
+<?php while($donnees = $reponse->fetch()){ ?>
+
+  <div class="entoureTexte1"><h1><?php echo $donnees['Nom']; ?>" "<?php echo $donnees['Prenom']; ?><a href="Profil.php"><button type="button" class="btn btn-danger">Supprimer</button></a><a href="Profil.php"><button type="button" class="btn btn-success">Ajouter</button></a> <hr></h1>
 <table class="table">
   <thead>
     <tr>

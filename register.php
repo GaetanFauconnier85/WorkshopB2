@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-require 'function.php';
 require_once 'db.php';
 
 if (!empty($_POST)){
@@ -47,14 +46,15 @@ if (!empty($_POST)){
 
     if(empty($errors)){
 
-        $req = $pdo->prepare("INSERT INTO client SET Identifiant = ?, Email = ?, password = ?, Nom = ?, Prenom = ?, Promo = ?, ActPrefere = ?, status = ?, tel = ?, musiquePrefere = ?, PlatPrefere = ? ");
+        $req = $pdo->prepare("INSERT INTO client SET Identifiant = ?, Email = ?, password = ?, Nom = ?, Prenom = ?, Promo = ?, ActPrefere = ?, status = ?, tel = ?, musiquePrefere = ?, Caractere = ? ");
         $options = [
             'cost' => 13,
         ];
         $password = password_hash($_POST['password'], PASSWORD_BCRYPT,$options);
-        $req->execute([$_POST['username'], $_POST['email'], $password, $_POST['firstname'], $_POST['lastname'], $_POST['phone'], $_POST['classroom'], $_POST['status'], $_POST['likesport'], $_POST['music'], $_POST['meat']]);
+        $req->execute([$_POST['username'], $_POST['email'], $password, $_POST['firstname'], $_POST['lastname'], $_POST['classroom'], $_POST['likesport'], $_POST['status'], $_POST['phone'], $_POST['music'], $_POST['caractere']]);
 
-        die('Votre Compte à bien été crée');
+        $_SESSION['succes'] = 'Votre Compte à bien été crée';
+        header('Location : index.php');
     }
 }
 
@@ -71,6 +71,7 @@ if (!empty($_POST)){
         <link rel="stylesheet" type="text/css" href="css/register.css">
     </head>
     <body>
+
     <div class="container-fluid">
         <div class="container">
             <h2 class="text-center" id="title">EPSI Student</h2>
@@ -167,8 +168,8 @@ if (!empty($_POST)){
                             </div>
 
                             <div class="form-group">
-                                <label for = "meat">votre plâts préféré :</label>
-                                <input type="text" name="meat" id="meat" class="form-control input-lg" placeholder="risotto">
+                                <label for = "caractere">Caractere :</label>
+                                <input type="text" name="caractere" id="caractere" class="form-control input-lg" placeholder="risotto">
                             </div>
 
                             <div>

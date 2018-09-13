@@ -13,7 +13,23 @@
     </head> 
     <body>
         
-    <?php include 'menu.php';?>
+    <?php include 'menu.php';
+    
+    $idClient = '1';
+
+$bdd = new PDO('mysql:host=localhost;dbname=wsb2;charset=utf8', 'root', '');
+       
+       $reponse = $bdd->prepare('SELECT * FROM activite  where idAct=:idAct');
+       $reponse->execute(array(
+           ":idAct" => $idAct
+
+       ));
+
+       $comment = $bdd->prepare('SELECT * FROM commentaire co join activite a on a.idAct=co.idAct join client c on c.Id=co.idClient where co.idAct=:idAct');
+      $comment->execute(array(
+        ":idAct" => $idAct
+      ));
+?>?>
 
         <h1>Salle de discution</h1>   <hr>     
 
